@@ -2,25 +2,26 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json")
 
+
+client.on("ready", () => {
+  console.log(`O bot foi iniciado, com ${client.users.cache.size} usuários e em ${client.guilds.cache.size} servidores.`);
+  client.user.setActivity('(O nome do status aqui)', { type: 'PLAYING' });(`Eu estou em ${client.guilds.cache.size} servidores`);
+});
+
+client.on("guildCreate", guild => {
+    console.log(`O bot entrou no servidor: ${guild.name} (ID do servidor: ${guild.id}). Membros: ${guild.memberCount} membros!`);
+    client.user.setActivity(`Estou em ${client.guilds.cache.size} servidores.`);
+});
+
+client.on("guildDelete", guild => {
+    console.log(`O bot foi removido do servidor: ${guild.name} (ID do servidor: ${guild.id})`);
+    client.user.setActivity(`Serving ${client.guilds.cache.size} servers`);
+});
+
+
+client.on("message", async message => {
+
+
+});
+
 client.login(config.token);
-
-client.on('ready', client => {
-    console.log('Bot ready!!!!');
-})
-
-client.on('message', message =>{
-    if (message.author.bot || !message.guild) return;
-    if (message.content.indexOf(config.prefix) !== 0) return;
-    const args = message.content
-        .slice(config.prefix.length) // Removes prefix
-        .trim() // Removes spaces
-        .split(/ +/g); // Makes it an Array bye spliting space
-    // Array is [ 'hi', ''argument', 'bye' ]
-    const command = args.shift().toLowerCase();
-    if (command == 'ping') {
-        message.channel.send('pong');
-    }
-    if (command == 'test') {
-        message.channel.send('testsend.mp4'); 
-    }
-})
