@@ -5,7 +5,7 @@ const config = require("./config.json")
 
 client.on("ready", () => {
   console.log(`O bot foi iniciado, com ${client.users.cache.size} usuários e em ${client.guilds.cache.size} servidores.`);
-  client.user.setActivity('(PMDF BY HIGOR)', { type: 'PLAYING' });(`Eu estou em ${client.guilds.cache.size} servidores`);
+  client.user.setActivity('(BOT DA BOPE CRIADO POR HIGOR)', { type: 'PLAYING' });(`Eu estou em ${client.guilds.cache.size} servidores`);
 });
 
 client.on("guildCreate", guild => {
