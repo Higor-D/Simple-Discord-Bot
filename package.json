@@ -1,0 +1,16 @@
+{
+  "name": "bope-discord-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": " node app.js",
+  "dependencies": {
+    "discord.js": "^12.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node app.js"
+  },
+  "keywords": [],
+  "author": "Higor123123",
+  "license": "ISC"
+}
